@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.harmony.componentgen</id>
+    <name>ArkTS Component Generator</name>
+    <version>1.0.0</version>
+    <vendor email="dev@example.com" url="https://www.harmonyos.com">HarmonyOSSN</vendor>
+
+    <description><![CDATA[
+        在 DevEco Studio 中快速生成 ArkTS 组件骨架代码。<br/>
+        <b>功能特性：</b>
+        <ul>
+            <li>支持状态管理 V1（@Component + @State）与 V2（@ComponentV2 + @Local）两种模式</li>
+            <li>可选生成 @Entry 页面入口（RelativeContainer 居中 Text 模板）</li>
+            <li>可选携带示例状态变量</li>
+            <li>通过 Generate 菜单（Alt+Insert）或编辑器右键菜单唤起，代码插入光标处</li>
+        </ul>
+    ]]></description>
+
+    <!-- DevEco Studio 6.1.1.290 (build 243.24978.46.36.611290) -->
+    <idea-version since-build="243"/>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="Harmony.GenerateArkTSComponent"
+                class="com.harmony.componentgen.GenerateComponentAction"
+                text="ArkTS Component..."
+                description="生成 ArkTS 组件骨架代码（支持 V1 / V2 状态管理）"
+                icon="/icons/pluginIcon.svg">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift K"/>
+        </action>
+    </actions>
+</idea-plugin>
